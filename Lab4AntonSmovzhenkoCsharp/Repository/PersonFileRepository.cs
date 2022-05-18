@@ -13,23 +13,7 @@ namespace Lab4AntonSmovzhenkoCsharp.Repository
     internal class PersonFileRepository
     {
         private static readonly string MainFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MyC#Storage", "MyUsers");
-        public PersonFileRepository()
-        {
-            if(!Directory.Exists(MainFolder))
-            {
-                Directory.CreateDirectory(MainFolder);
-                for(int i = 0;i<50;i++)
-                {
-                    DateTime birthday = new DateTime(1970 + i, (i % 12)+1, (i % 12)+1);
-                    int age = Person.getAge(birthday);
-                    string firstName = i < 10 ? "CustomUser0" + i : "CustomUser" + i;
-                    string lastName = i < 10 ? "LastName0" + i : "LastName" + i;
-                    AddToRepositoryOrUpdateAsync(new Person(firstName, lastName, i + "@gmail.com",
-                        birthday, Person.CalculateIsAdult(age),Person.CalculateSunSign(birthday),Person.CalculateChineseSign(birthday),Person.CalculateIsBirthday(birthday),age));
-                }
-            }
-        }
-
+  
         public async Task AddToRepositoryOrUpdateAsync(Person person)
         {
             var personInString = JsonSerializer.Serialize(person);
@@ -48,7 +32,7 @@ namespace Lab4AntonSmovzhenkoCsharp.Repository
             {
                 return null;
             }
-            using(var reader = new StreamReader(path))
+            using (var reader = new StreamReader(path))
             {
                 personInString = await reader.ReadToEndAsync();
             }
@@ -63,19 +47,19 @@ namespace Lab4AntonSmovzhenkoCsharp.Repository
         public List<RedactorViewModel> GetAllPersons(Action gotoInfo)
         {
             List<RedactorViewModel> persons = new List<RedactorViewModel>();
-            foreach(var file in Directory.EnumerateFiles(MainFolder))
+            foreach (var file in Directory.EnumerateFiles(MainFolder))
             {
                 string personInString = null;
                 using (var reader = new StreamReader(file))
                 {
                     personInString = reader.ReadToEnd();
                 }
-                persons.Add(new RedactorViewModel(JsonSerializer.Deserialize<Person>(personInString),gotoInfo));
+                persons.Add(new RedactorViewModel(JsonSerializer.Deserialize<Person>(personInString), gotoInfo));
             }
             return persons;
         }
-        
+
     }
 
-    
+
 }

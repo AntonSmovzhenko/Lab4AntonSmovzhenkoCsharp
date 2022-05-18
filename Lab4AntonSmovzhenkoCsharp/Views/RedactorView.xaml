@@ -7,8 +7,8 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800"
-             Background="White"
-             Width="800">
+             Background="CornflowerBlue"
+             Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -20,18 +20,18 @@
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock  Grid.Row="0" Text="Choose your date of birth" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto"></TextBlock>
-        <DatePicker Text="Pick your date" Grid.Row="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  SelectedDate="{Binding ChangedBirthday, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
-        <TextBlock  Grid.Row="2" Text="Enter your first name" HorizontalAlignment="Stretch" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto"></TextBlock>
-        <TextBlock  Grid.Row="2" Grid.Column="1" Text="Enter your last name" HorizontalAlignment="Stretch" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto"></TextBlock>
-        <TextBox  Grid.Row="3" HorizontalAlignment="Stretch" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Text="{Binding ChangedFirstName, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox  Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Text="{Binding ChangedLastName, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" TextChanged="TextBox_TextChanged"></TextBox>
-        <TextBlock  Grid.Row="4" Text="Your email" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto"></TextBlock>
-        <TextBlock  Grid.Row="5" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="5,0,0,0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Text="{Binding Email, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <Button Content="Confirm" Grid.Row="6" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Command="{Binding GotoInfoCommand}"/>
-        <Button Content="Cancel" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Width="Auto" Command="{Binding CancelCommand}"/>
+        <TextBlock  Grid.Row="0" Text="Choose your date of birth" Grid.ColumnSpan="2" Margin="5,0,0,0" Width="Auto" Height="Auto"/>
+        <DatePicker Text="Pick your date" Grid.Row="1" Background="Yellow" Grid.ColumnSpan="2" Margin="5,5,5,5" Width="Auto" Height="Auto"  SelectedDate="{Binding ChangedBirthday, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
+        <TextBlock  Grid.Row="2" Text="Enter your first name" Margin="5,0,0,0" Width="Auto" Height="Auto"/>
+        <TextBlock  Grid.Row="2" Grid.Column="1" Text="Enter your last name" Margin="5,0,0,0" Width="Auto" Height="Auto"/>
+        <TextBox  Grid.Row="3" Background="Yellow" Margin="5,0,0,0" Width="Auto" Height="Auto" Text="{Binding ChangedFirstName, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox  Grid.Row="3" Background="Yellow" Grid.Column="1" Margin="5,0,0,0" Width="Auto" Height="Auto" Text="{Binding ChangedLastName, Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" TextChanged="TextBox_TextChanged"/>
+        <TextBlock  Grid.Row="4" Text="Your email" Grid.ColumnSpan="2" Margin="5,0,0,0" Width="Auto" Height="Auto"/>
+        <TextBlock  Grid.Row="5" Background="Yellow" Grid.ColumnSpan="2" Margin="5,0,0,0" Width="Auto" Height="Auto" Text="{Binding Email, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Confirm"  Grid.Row="6" Margin="5,5,5,5" Width="Auto" Command="{Binding GotoInfoCommand}"/>
+        <Button Content="Cancel" Grid.Row="6" Grid.Column="1" Margin="5,5,5,5" Width="Auto" Command="{Binding CancelCommand}"/>
     </Grid>
 </UserControl>

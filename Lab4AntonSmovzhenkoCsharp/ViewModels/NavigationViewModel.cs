@@ -1,11 +1,4 @@
 ﻿using Lab4AntonSmovzhenkoCsharp.Navigation;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab4AntonSmovzhenkoCsharp.ViewModels
 {
@@ -19,7 +12,7 @@ namespace Lab4AntonSmovzhenkoCsharp.ViewModels
             Navigate(NavigationTypes.Info);
         }
 
-        protected override INavigatable CreateNewViewModel(NavigationTypes type)
+        protected override NavigationInProject CreateNewViewModel(NavigationTypes type)
         {
             switch (type)
             {

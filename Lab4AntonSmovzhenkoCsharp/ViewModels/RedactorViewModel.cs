@@ -4,16 +4,13 @@ using Lab4AntonSmovzhenkoCsharp.Navigation;
 using Lab4AntonSmovzhenkoCsharp.Repository;
 using Lab4AntonSmovzhenkoCsharp.Tools;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace Lab4AntonSmovzhenkoCsharp.ViewModels
 {
-    internal class RedactorViewModel : INotifyPropertyChanged, INavigatable
+    internal class RedactorViewModel : INotifyPropertyChanged, NavigationInProject
     {
         private Person person;
         private static PersonFileRepository PersonFileRepository = new PersonFileRepository();

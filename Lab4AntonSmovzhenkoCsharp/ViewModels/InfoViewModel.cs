@@ -1,20 +1,16 @@
-﻿using Lab4AntonSmovzhenkoCsharp.Models;
-using Lab4AntonSmovzhenkoCsharp.Navigation;
+﻿using Lab4AntonSmovzhenkoCsharp.Navigation;
 using Lab4AntonSmovzhenkoCsharp.Repository;
-using Lab4AntonSmovzhenkoCsharp.Sending;
 using Lab4AntonSmovzhenkoCsharp.Tools;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab4AntonSmovzhenkoCsharp.ViewModels
 {
-    internal class InfoViewModel : INavigatable, INotifyPropertyChanged
+    internal class InfoViewModel : NavigationInProject, INotifyPropertyChanged
     {
         public NavigationTypes ViewType => NavigationTypes.Info;
         private Action gotoLogin;

@@ -1,8 +1,7 @@
 ﻿using Lab4AntonSmovzhenkoCsharp.Exceptions;
 using System;
-
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
 
 namespace Lab4AntonSmovzhenkoCsharp.Models
 {
@@ -22,6 +21,7 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
         public DateTime Birthday
         {
             get => birthday;
+
             set => birthday = value;
         }
         public bool IsAdult
@@ -49,20 +49,24 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
 
         public Person(string firstName, string lastName, string? email, DateTime birthday, bool isAdult, string sunSign, string chineseSign, bool isBirthday, int age)
         {
+            
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Birthday = birthday;
+
+            //////////////////////////////////
+
             this.isAdult = isAdult;
             this.sunSign = sunSign;
             this.chineseSign = chineseSign;
             this.isBirthday = isBirthday;
+
+            //////////////////////////////////
+
             birthdayInString = birthday.ToShortDateString();
             Age = age;
-            if (!ValidateEmail(email))
-            {
-                throw new IncorrectEmailException("Your email is incorrect");
-            }
+
             if (age < 0)
             {
                 throw new BirthdayInFutureException("Your age is below 0.It can't be true");
@@ -71,6 +75,11 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
             {
                 throw new BirthdayInFutureException("Your age is above 135.It can't be true");
             }
+            if (!ValidateEmail(email))
+            {
+                throw new IncorrectEmailException("Your email is incorrect");
+            }
+            
         }
         public static int getAge(DateTime birthday)
         {
@@ -84,6 +93,9 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
                 }
                 return DateTime.Today.Year - birthday.Year;
         }
+
+        //////////////////////////////////
+
         public static string CalculateSunSign(DateTime birthday)
         {
             if (birthday.Day >= 21 && birthday.Month == 1 ||
@@ -144,10 +156,12 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
             return SunSigns.Capricorn.ToString();
 
         }
+
+        //////////////////////////////////
         public static string CalculateChineseSign(DateTime birthday)
         {
-            int tmp = birthday.Year % 12;
-            switch (tmp)
+            int Chinese = birthday.Year % 12;
+            switch (Chinese)
             {
                 case 0:
                     return ChineseSigns.Monkey.ToString();
@@ -175,9 +189,12 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
                     return ChineseSigns.Goat.ToString();
             }
         }
+
+        //////////////////////////////////
         private bool ValidateEmail(string email)
         {
             Regex regex = new Regex(@"(\w+)@(\w+)\.(\w+)");
+
             return regex.IsMatch(email);
         }
         public static bool CalculateIsAdult(int age)
@@ -190,6 +207,7 @@ namespace Lab4AntonSmovzhenkoCsharp.Models
         }
     }
 
+    //////////////////////////////////
     enum SunSigns
     {
         Aries,

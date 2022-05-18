@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Lab4AntonSmovzhenkoCsharp.Views" xmlns:viewmodels="clr-namespace:Lab4AntonSmovzhenkoCsharp.ViewModels"
              mc:Ignorable="d" 
+             Background="CornflowerBlue"
              d:DesignHeight="450" d:DesignWidth="800" Content="{Binding ViewModel,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type viewmodels:InfoViewModel}">

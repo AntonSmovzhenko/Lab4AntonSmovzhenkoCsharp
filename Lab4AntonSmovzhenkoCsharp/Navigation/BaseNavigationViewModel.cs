@@ -5,20 +5,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+
 
 namespace Lab4AntonSmovzhenkoCsharp.Navigation
 {
     
     internal abstract class BaseNavigationViewModel : INotifyPropertyChanged
     {
-        private INavigatable viewModel;
-        List<INavigatable> viewModels = new List<INavigatable>();
+        private NavigationInProject viewModel;
+        List<NavigationInProject> viewModels = new List<NavigationInProject>();
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public INavigatable ViewModel 
+        public NavigationInProject ViewModel 
         { 
             get
             {
@@ -41,7 +39,7 @@ namespace Lab4AntonSmovzhenkoCsharp.Navigation
             {
                 return;
             }
-            INavigatable viewModel = GetViewModel(type);
+            NavigationInProject viewModel = GetViewModel(type);
             if(viewModel == null)
             {
                 return;
@@ -50,11 +48,11 @@ namespace Lab4AntonSmovzhenkoCsharp.Navigation
             
         }
 
-        protected abstract INavigatable CreateNewViewModel(NavigationTypes type);
+        protected abstract NavigationInProject CreateNewViewModel(NavigationTypes type);
 
-        private INavigatable GetViewModel(NavigationTypes type)
+        private NavigationInProject GetViewModel(NavigationTypes type)
         {
-            INavigatable viewModel = viewModels.FirstOrDefault(vm => vm.ViewType == type);
+            NavigationInProject viewModel = viewModels.FirstOrDefault(vm => vm.ViewType == type);
             if(viewModel != null)
             {
                 return viewModel;
